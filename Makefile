@@ -6,6 +6,8 @@ CFLAGS = -Wall -Wextra -Werror
 INCLUDES = includes
 
 SRCS = main.c \
+		utils.c \
+		init_simulation.c \
 
 OBJS = $(SRCS:.c=.o)
 

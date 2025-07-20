@@ -44,5 +44,9 @@ typedef struct t_data
 	t_philo	*philos;
 }	s_data;
 
+//utils
+int	ft_atoi(const char *str);
+int	is_space(char c);
+int	is_digit(char c);
 
 #endif
