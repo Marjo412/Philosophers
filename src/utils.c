@@ -35,6 +35,3 @@ int	is_space(char c)
 {
 	return ((c >= 9 && c <= 13) || c == 32);
 }
-
-int init_data(t_data *data)
-{}

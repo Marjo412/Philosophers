@@ -1,6 +1,6 @@
 
-#ifndef PHILOSOPHERS.H
-# define PHILOSOPHERS.H
+#ifndef PHILO.H
+# define PHILO.H
 
 #include <unistd.h>
 #include <stdio.h>
@@ -10,7 +10,6 @@
 #include <sys/time.h> //gettimeofday
 #include <limits.h> //INT_MAX
 
-// ./philo 5 800 200 200 7
 typedef pthread_mutex_t t_mtx;
 
 typedef struct s_fork
@@ -31,18 +30,22 @@ typedef struct s_philo
 	t_data		*data;
 }	t_philo;
 
+// ./philo 5 800 200 200 7
 typedef struct t_data
 {
-	long	nbr_philo;
-	long	time_to_die;
-	long	time_to_eat;
-	long	time_to_sleep;
-	long	nbr_meals; //nbr given in command line
-	long	start_simulation;
+	int	nbr_philo;
+	int	time_to_die;
+	int	time_to_eat;
+	int	time_to_sleep;
+	int	nbr_meals; //nbr given in command line
+	int	start_simulation;
 	bool	end_simulation; // when a philo dies or nbr of meals is reach
-	t_fork	*fork; // array forks
+	t_fork	*forks; // array forks
 	t_philo	*philos;
 }	s_data;
+
+//parsing
+
 
 //utils
 int	ft_atoi(const char *str);

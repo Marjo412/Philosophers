@@ -1,5 +1,5 @@
 
-NAME = philosophers
+NAME = philo
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
@@ -7,7 +7,7 @@ INCLUDES = includes
 
 SRCS = main.c \
 		utils.c \
-		init_simulation.c \
+		init.c \
 
 OBJS = $(SRCS:.c=.o)
 

@@ -13,4 +13,9 @@ int	main(int argc, char **argv)
 }
 
 /*
-main: we want at least 5 and at most 6 args*/
+main: we want at least 5 and at most 6 args
+
+**pthread_mutex_init:
+**pthread_mutex_destroy:
+**pthread_mutex_lock:
+**pthread_mutex_unlock:*/
