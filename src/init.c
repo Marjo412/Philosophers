@@ -49,7 +49,12 @@ void	init_data(t_data *data)
 }
 
 int init_simulation(t_data *data)
-{}
+{
+	int	i;
+
+	if (!one_philo(philos))
+		return (0);
+}
 
 int init_mutex()
 {}

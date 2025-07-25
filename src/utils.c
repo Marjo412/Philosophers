@@ -35,3 +35,12 @@ int	is_space(char c)
 {
 	return ((c >= 9 && c <= 13) || c == 32);
 }
+
+int	one_philo(t_philo *philos)
+{
+	if (philos->data->nbr_philo == 1)
+	{
+
+	}
+	return (1);
+}

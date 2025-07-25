@@ -25,6 +25,6 @@ int	start_dinner(t_data *data, pthread_t *thread)
 	else
 	{
 		while ()
-			pthread_create();
+			pthread_create(&data->philos[i], start_simulation);
 	}
 }
