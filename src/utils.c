@@ -44,3 +44,13 @@ int	one_philo(t_philo *philos)
 	}
 	return (1);
 }
+
+time_t	get_time(void)
+{
+	struct timeval	tv;
+
+	if (gettimeofday(&tv, NULL) == -1)
+		printf(%s, "Error : gettimeofday\n");
+		exit (2);
+	return ((time.tv_sec) * 1000 + (time.tv_usec) / 1000); //a checker
+}

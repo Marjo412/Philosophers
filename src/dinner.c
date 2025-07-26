@@ -13,6 +13,21 @@
 6. join every philos
 */
 
+int	wait_all_threads(t_data	*data)
+{
+	int		i;
+	t_philo	*current;
+
+	current = data->philos;
+	i = 0;
+	while (i < data->nbr_philo)
+	{
+		pthread_creat();
+	}
+
+	return (1);
+}
+
 int	start_dinner(t_data *data, pthread_t *thread)
 {
 	int	i;
@@ -21,10 +36,11 @@ int	start_dinner(t_data *data, pthread_t *thread)
 	if (0 == data->nbr_meals)
 		return ;
 	else if (1 == data->nbr_philo)
-		//special function
+		one_philo();//special function
 	else
 	{
 		while ()
 			pthread_create(&data->philos[i], start_simulation);
+		i++;
 	}
 }

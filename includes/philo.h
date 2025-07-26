@@ -33,15 +33,17 @@ typedef struct s_philo
 // ./philo 5 800 200 200 7
 typedef struct t_data
 {
-	int	nbr_philo;
-	int	time_to_die;
-	int	time_to_eat;
-	int	time_to_sleep;
-	int	nbr_meals; //nbr given in command line
-	int	start_simulation;
-	bool	end_simulation; // when a philo dies or nbr of meals is reach
-	t_fork	*forks; // array forks
-	t_philo	*philos;
+	time_t			time;
+	int				nbr_philo;
+	t_time			time_to_die;
+	t_time			time_to_eat;
+	t_time			time_to_sleep;
+	int				nbr_meals; //nbr given in command line
+	int				start_simulation;
+	bool			end_simulation; // when a philo dies or nbr of meals is reach
+	pthread_mutex_t	dinner_mutex;
+	t_fork			*forks; // array forks
+	t_philo			*philos;
 }	s_data;
 
 //parsing
