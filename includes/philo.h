@@ -1,14 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philo.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/27 09:49:39 by mrosset           #+#    #+#             */
+/*   Updated: 2025/07/27 09:50:58 by mrosset          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef PHILO.H
 # define PHILO.H
 
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool>
-#include <pthread.h> //mutex, threads
-#include <sys/time.h> //gettimeofday
-#include <limits.h> //INT_MAX
+# include <unistd.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <stdbool>
+# include <pthread.h> //mutex, threads
+# include <sys/time.h> //gettimeofday
+# include <limits.h> //INT_MAX
 
 typedef pthread_mutex_t t_mtx;
 

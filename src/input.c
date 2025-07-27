@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   input.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/27 09:48:16 by mrosset           #+#    #+#             */
+/*   Updated: 2025/07/27 09:48:47 by mrosset          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 
 int	valid_input(const char *str)
@@ -18,7 +30,7 @@ int	valid_input(const char *str)
 		len++;
 	if (len > 10)
 		return (printf("Error : the limit of the value is INT_MAX\n", 1));
-	return (0); 
+	return (0);
 }
 
 void	parse_input(t_data *data, char **argv)
@@ -29,7 +41,7 @@ void	parse_input(t_data *data, char **argv)
 	data->time_to_sleep = ft_atoi(argv[4]);
 	if (data->time_to_die < 6e4 || data->time_to_eat < 6e4
 		|| data-> time_to_die < 6e4)
-			printf("Error : time must be major than 60ms\n");
+		printf("Error : time must be major than 60ms\n");
 	if (argv[5])
 		data->nbr_meals = ft_atoi(argv[5]);
 	else
