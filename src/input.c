@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 09:48:16 by mrosset           #+#    #+#             */
-/*   Updated: 2025/07/27 09:48:47 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/07/28 22:25:47 by marjorie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,10 @@ void	parse_input(t_data *data, char **argv)
 		data->nbr_meals = ft_atoi(argv[5]);
 	else
 		data->nbr_meals = -1;
+}
+
+// [time_ms] [philo_id] [action] print the output
+void	output(t_philo *philo)
+{
+	pthread_mutex_unlock(&philo->data->print_mutex);
 }

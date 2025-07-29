@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 09:49:39 by mrosset           #+#    #+#             */
-/*   Updated: 2025/07/27 09:50:58 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/07/28 22:21:45 by marjorie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include <stdbool>
+# include <stdbool.h>
 # include <pthread.h> //mutex, threads
 # include <sys/time.h> //gettimeofday
 # include <limits.h> //INT_MAX

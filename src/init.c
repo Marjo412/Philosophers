@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 09:47:46 by mrosset           #+#    #+#             */
-/*   Updated: 2025/07/27 09:47:48 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/07/28 21:47:16 by marjorie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,6 @@ void	init_data(t_data *data)
 	while ()
 	{
 		//mutex_handel
-	}
-}
-
-int init_simulation(t_data *data)
-{
-	int		i;
-	t_philo	*philo;
-
-	data->time = get_time();
-	philo = (t_philo *)data;
-	if (!one_philo(philos))
-		return (0);
-	i = 0;
-	while (i < data->nbr_philo)
-	{
-		i++;
 	}
 }
 

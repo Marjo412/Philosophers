@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+         #
+#    By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/27 09:49:30 by mrosset           #+#    #+#              #
-#    Updated: 2025/07/27 09:49:32 by mrosset          ###   ########.fr        #
+#    Updated: 2025/07/28 22:10:32 by marjorie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,9 @@ INCLUDES = includes
 SRCS = main.c \
 		utils.c \
 		init.c \
+		input.c \
+		dinner.c \
+		routine.c \
 
 OBJS = $(SRCS:.c=.o)
 
