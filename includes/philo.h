@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 09:49:39 by mrosset           #+#    #+#             */
-/*   Updated: 2025/07/29 16:05:43 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/07/29 20:37:26 by marjorie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,19 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <stdbool.h>
+# include <string.h> //memset
 # include <pthread.h> //mutex, threads
 # include <sys/time.h> //gettimeofday
 # include <limits.h> //INT_MAX
+
+# define WHITE "\033[0;37m"
+# define RED "\033[0;31m"
+# define GREEN "\033[0;32m"
+# define YELLOW "\033[0;33m"
+# define BLUE "\033[0;34m"
+# define MAGENTA "\033[0;35m"
+# define CYAN "\033[0;36m"
+# define RESET "\033[0m"
 
 typedef pthread_mutex_t t_mtx;
 

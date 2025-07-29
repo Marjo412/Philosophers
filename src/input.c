@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 09:48:16 by mrosset           #+#    #+#             */
-/*   Updated: 2025/07/29 16:09:22 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/07/29 20:38:43 by marjorie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,12 @@ void	parse_input(t_data *data, char **argv)
 }
 
 // [time_ms] [philo_id] [action] print the output
-void	output(t_philo *philo)
+void	output(t_philo *philo, char *routine, char *color)
 {
+	pthread_mutex_lock(&philo->data->print_mutex);
+	if (!end_simulation(philo->data))
+	{
+		printf("%ld %d %s\n",color, get_time(), philo->id, routine)
+	}
 	pthread_mutex_unlock(&philo->data->print_mutex);
 }
