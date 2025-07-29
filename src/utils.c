@@ -6,7 +6,7 @@
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 09:49:05 by mrosset           #+#    #+#             */
-/*   Updated: 2025/07/27 09:49:17 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/07/29 16:08:59 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,9 @@ time_t	get_time(void)
 	struct timeval	tv;
 
 	if (gettimeofday(&tv, NULL) == -1)
-		printf(%s, "Error : gettimeofday\n");
-		exit (2);
+	{
+		printf("Error : gettimeofday\n");
+		exit(2);
+	}
 	return ((time.tv_sec) * 1000 + (time.tv_usec) / 1000); //a checker
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 09:47:46 by mrosset           #+#    #+#             */
-/*   Updated: 2025/07/28 21:47:16 by marjorie         ###   ########.fr       */
+/*   Updated: 2025/07/29 16:09:43 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	init_data(t_data *data)
 	data->end_simulation = false;
 	data->philos = malloc(sizeof(t_philo) * data->nbr_philo);
 	data->forks = malloc(sizeof(t_fork) * data->nbr_philo);
-	pthread_mutex_init(&data->)
+	pthread_mutex_init(&data->);
 	while ()
 	{
 		//mutex_handel

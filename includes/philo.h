@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 09:49:39 by mrosset           #+#    #+#             */
-/*   Updated: 2025/07/28 22:21:45 by marjorie         ###   ########.fr       */
+/*   Updated: 2025/07/29 16:05:43 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,31 @@ typedef struct t_data
 	t_philo			*philos;
 }	s_data;
 
-//parsing
+//input and output
+int		valid_input(const char *str);
+void	parse_input(t_data *data, char **argv);
+void	output(t_philo *philo);
 
+//every functions for the simulation
+int		wait_all_threads(t_data	*data);
+int		start_dinner(t_data *data, pthread_t *thread);
+int		init_simulation(t_data *data);
+void	end_simulation(t_data *data);
+void	init_data(t_data *data);
+int		init_mutex(t_data *data);
+int		init_philos(t_data *s_data);
+int		init_fork(t_philo *philo, t_fork *fork, int philo_pos);
+
+//routine
+void    sleep(t_philo *philo);
+void    eat(t_philo *philo);
+void    think(t_philo *philo);
 
 //utils
-int	ft_atoi(const char *str);
-int	is_space(char c);
-int	is_digit(char c);
+int		ft_atoi(const char *str);
+int		is_space(char c);
+int		is_digit(char c);
+int		one_philo(t_philo *philos);
+time_t	get_time(void);
 
 #endif

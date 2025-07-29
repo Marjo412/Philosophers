@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dinner.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 09:47:36 by mrosset           #+#    #+#             */
-/*   Updated: 2025/07/28 21:48:15 by marjorie         ###   ########.fr       */
+/*   Updated: 2025/07/29 16:03:13 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	start_dinner(t_data *data, pthread_t *thread)
 	}
 }
 
-int init_simulation(t_data *data)
+int	init_simulation(t_data *data)
 {
 	int		i;
 	t_philo	*philo;
