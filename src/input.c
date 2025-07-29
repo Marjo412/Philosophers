@@ -6,30 +6,31 @@
 /*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 09:48:16 by mrosset           #+#    #+#             */
-/*   Updated: 2025/07/29 20:38:43 by marjorie         ###   ########.fr       */
+/*   Updated: 2025/07/29 21:55:38 by marjorie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	valid_input(const char *str)
+int	valid_input(t_data *data, const char *str)
 {
 	int	len;
-	//1. check for negatives
-	//2. check if nb is legit
-	//3. check INT_MAX
-	while (is_space(*str))
-		str++;
-	if (*str == '+')
-		str++;
-	else if (*str == '-')
-		return (printf("Error : positive value only\n"), 1);
-	if (!is_digit(*str))
-		return (printf("Error : the input must be a digit\n", 1));
-	while (is_digit(*str++))
+
+	len = 0;
+	while (is_space(str[len]))
 		len++;
-	if (len > 10)
+	if (str[len] == '+')
+		len++;
+	else if (str[len] == '-')
+		return (printf("Error : positive value only\n"), 1);
+	if (!is_digit(str[len]))
+		return (printf("Error : the input must be a digit\n", 1));
+	while (is_digit(str[len]))
+		len++;
+	if (str[len] > INT_MAX)
 		return (printf("Error : the limit of the value is INT_MAX\n", 1));
+	if (nbr_philo < 1 || nbr_philo > 200)
+		return (printf("Error : the nbr of philos must be between 1 to 200\n", 1));
 	return (0);
 }
 
@@ -58,3 +59,12 @@ void	output(t_philo *philo, char *routine, char *color)
 	}
 	pthread_mutex_unlock(&philo->data->print_mutex);
 }
+
+/*
+**valid_input: this function checks if the input is valid
+	//0. check special chars, tab, space...
+	//1. check for negatives
+	//2. check if nb is legit, no letters
+	//3. check INT_MAX
+**parse_input:
+*/

@@ -6,7 +6,7 @@
 /*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 09:49:39 by mrosset           #+#    #+#             */
-/*   Updated: 2025/07/29 20:37:26 by marjorie         ###   ########.fr       */
+/*   Updated: 2025/07/29 21:56:46 by marjorie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,9 @@ typedef struct t_data
 }	s_data;
 
 //input and output
-int		valid_input(const char *str);
+int		valid_input(t_data *data, const char *str);
 void	parse_input(t_data *data, char **argv);
-void	output(t_philo *philo);
+void	output(t_philo *philo, char *routine, char *color);
 
 //every functions for the simulation
 int		wait_all_threads(t_data	*data);
@@ -86,6 +86,7 @@ int		init_fork(t_philo *philo, t_fork *fork, int philo_pos);
 void    sleep(t_philo *philo);
 void    eat(t_philo *philo);
 void    think(t_philo *philo);
+void    died(t_philo *philo);
 
 //utils
 int		ft_atoi(const char *str);
