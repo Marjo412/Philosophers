@@ -6,7 +6,7 @@
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 09:47:36 by mrosset           #+#    #+#             */
-/*   Updated: 2025/07/29 16:03:13 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/07/30 10:00:33 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,13 @@ int	init_simulation(t_data *data)
 void	end_simulation(t_data *data)
 {
 	
+}
+
+void	*routine(void *arg)
+{
+	t_philo	*philo;
+
+	philo = (t_philo *)arg;
+	if (philo->id % 2 == 0)
+		sleep(philo);
 }

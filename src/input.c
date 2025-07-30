@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 09:48:16 by mrosset           #+#    #+#             */
-/*   Updated: 2025/07/29 21:55:38 by marjorie         ###   ########.fr       */
+/*   Updated: 2025/07/30 09:39:55 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,10 @@ int	valid_input(t_data *data, const char *str)
 	if (str[len] > INT_MAX)
 		return (printf("Error : the limit of the value is INT_MAX\n", 1));
 	if (nbr_philo < 1 || nbr_philo > 200)
-		return (printf("Error : the nbr of philos must be between 1 to 200\n", 1));
+	{
+		printf("Error : the nbr of philos must be between 1 to 200\n");
+		return (1);
+	}
 	return (0);
 }
 
@@ -50,12 +53,12 @@ void	parse_input(t_data *data, char **argv)
 }
 
 // [time_ms] [philo_id] [action] print the output
-void	output(t_philo *philo, char *routine, char *color)
+void	output(t_philo *philo, char *color, char *routine)
 {
 	pthread_mutex_lock(&philo->data->print_mutex);
 	if (!end_simulation(philo->data))
 	{
-		printf("%ld %d %s\n",color, get_time(), philo->id, routine)
+		printf("%ld %d %s\n",color, get_time(), philo->id, routine);
 	}
 	pthread_mutex_unlock(&philo->data->print_mutex);
 }

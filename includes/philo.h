@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 09:49:39 by mrosset           #+#    #+#             */
-/*   Updated: 2025/07/29 21:56:46 by marjorie         ###   ########.fr       */
+/*   Updated: 2025/07/30 10:01:33 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@
 # include <limits.h> //INT_MAX
 
 # define WHITE "\033[0;37m"
-# define RED "\033[0;31m"
-# define GREEN "\033[0;32m"
+# define RED "\033[0;31m"		//dead
+# define GREEN "\033[0;32m"		//think
 # define YELLOW "\033[0;33m"
-# define BLUE "\033[0;34m"
-# define MAGENTA "\033[0;35m"
+# define BLUE "\033[0;34m"		//sleep
+# define MAGENTA "\033[0;35m"	//eat
 # define CYAN "\033[0;36m"
 # define RESET "\033[0m"
 
@@ -41,14 +41,14 @@ typedef struct s_fork
 
 typedef struct s_philo
 {
-	int			id;
-	long		meals_counter;
-	bool		full;
-	long		last_meal_time; //time passed from last meal
-	t_fork		*left_fork;
-	t_fork		*right_fork;
-	pthread_t	thread_id; // a philo is a thread
-	t_data		*data;
+	int				id;
+	long			meals_counter;
+	bool			full;
+	long			last_meal_time; //time passed from last meal
+	t_fork			*left_fork;
+	t_fork			*right_fork;
+	pthread_t		thread_id; // a philo is a thread
+	struct s_data	*data;
 }	t_philo;
 
 // ./philo 5 800 200 200 7
@@ -56,13 +56,13 @@ typedef struct t_data
 {
 	time_t			time;
 	int				nbr_philo;
-	t_time			time_to_die;
-	t_time			time_to_eat;
-	t_time			time_to_sleep;
+	time_t			time_to_die;
+	time_t			time_to_eat;
+	time_t			time_to_sleep;
 	int				nbr_meals; //nbr given in command line
 	int				start_simulation;
 	bool			end_simulation; // when a philo dies or nbr of meals is reach
-	pthread_mutex_t	dinner_mutex;
+	pthread_mutex_t	meal_mutex;
 	t_fork			*forks; // array forks
 	t_philo			*philos;
 }	s_data;

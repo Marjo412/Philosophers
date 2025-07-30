@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   routine.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:59:10 by mrosset           #+#    #+#             */
-/*   Updated: 2025/07/29 22:00:20 by marjorie         ###   ########.fr       */
+/*   Updated: 2025/07/30 09:51:28 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@ void    sleep(t_philo *philo)
 
 void    eat(t_philo *philo)
 {
+    pthread_mutex_lock(&philo->data->meal_mutex);
+    philo->last_meal_time = get_time();
+    philo->meals_counter ++;
+    pthread_mutex_unlock(&philo->data->meal_mutex);
     output(philo, MAGENTA, "is eating\n");
     usleep(philo->data->time_to_eat * 1000);
 }
