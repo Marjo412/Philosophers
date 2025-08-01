@@ -6,7 +6,7 @@
 /*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 09:47:36 by mrosset           #+#    #+#             */
-/*   Updated: 2025/08/01 13:19:27 by marjorie         ###   ########.fr       */
+/*   Updated: 2025/08/01 16:27:28 by marjorie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	wait_all_threads(t_data	*data)
 	i = 0;
 	while (i < data->nbr_philo)
 	{
-		pthread_creat();
+		pthread_create();
 	}
 
 	return (1);
@@ -42,12 +42,15 @@ int	wait_all_threads(t_data	*data)
 int	start_dinner(t_data *data, pthread_t *thread)
 {
 	int	i;
+	pthread_t monitor_thread;
 
+	data->start_simulation = get_time();
 	i = -1;
 	if (0 == data->nbr_meals)
 		return ;
 	else if (1 == data->nbr_philo)
-		one_philo();//special function
+		one_philo(&data->philos[0]);
+		return (1);
 	else
 	{
 		while ()
@@ -58,18 +61,15 @@ int	start_dinner(t_data *data, pthread_t *thread)
 
 int	init_simulation(t_data *data)
 {
-	int		i;
-	t_philo	*philo;
-
 	data->time = get_time();
-	philo = (t_philo *)data;
-	if (!one_philo(philos))
-		return (0);
-	i = 0;
-	while (i < data->nbr_philo)
+	if (data->nbr_philo == 1)
 	{
-		i++;
+		if (!one_philo(data->philos))
+			return (0);
 	}
+	//init_data
+	//init_mutex
+	return (1);
 }
 
 void	end_simulation(t_data *data)
@@ -83,20 +83,26 @@ void	*routine(void *arg)
 
 	philo = (t_philo *)arg;
 	if (philo->id % 2 == 0)
-		sleep(philo);
+		usleep(1000);
 	else
 		usleep(philo->data->time_to_eat * 1000);
-	while (!end_simulation(philo->data))
+	while (!philo->data->end_simulation)
 	{
+		take_forks(philo);
 		eat(philo);
-		if (end_simulation(philo->data))
-			break ;
+		relase_forks(philo);
 		sleep(philo);
-		if (end_simulation(philo->data))
-			break ;
 		think(philo);
 	}
-	if (end_simulation(philo->data))
-		died(philo);
 	return (NULL);
 }
+
+/*
+philo routine: 1.grab left and right fork
+		  		2.eat
+				3.put down forks.
+				4.sleep
+				5.think
+	end simulation if end_simulation is true
+					if philo dies
+*/

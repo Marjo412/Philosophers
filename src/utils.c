@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 09:49:05 by mrosset           #+#    #+#             */
-/*   Updated: 2025/07/29 16:08:59 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/08/01 15:51:56 by marjorie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,10 @@ int	is_space(char c)
 
 int	one_philo(t_philo *philos)
 {
-	if (philos->data->nbr_philo == 1)
-	{
-
-	}
+	output(philos, YELLOW, "has taken a fork\n");
+	usleep(philos->data->time_to_die * 1000);
+	output(philos, RED, "died\n");
+	philos->data->end_simulation = true;
 	return (1);
 }
 
@@ -65,5 +65,5 @@ time_t	get_time(void)
 		printf("Error : gettimeofday\n");
 		exit(2);
 	}
-	return ((time.tv_sec) * 1000 + (time.tv_usec) / 1000); //a checker
+	return ((tv.tv_sec) * 1000 + (tv.tv_usec) / 1000); //a checker
 }

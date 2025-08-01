@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 09:49:39 by mrosset           #+#    #+#             */
-/*   Updated: 2025/07/30 10:01:33 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/08/01 15:39:12 by marjorie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHILO.H
-# define PHILO.H
+#ifndef PHILO_H
+# define PHILO_H
 
 # include <unistd.h>
 # include <stdio.h>
@@ -25,7 +25,7 @@
 # define WHITE "\033[0;37m"
 # define RED "\033[0;31m"		//dead
 # define GREEN "\033[0;32m"		//think
-# define YELLOW "\033[0;33m"
+# define YELLOW "\033[0;33m"	//fork
 # define BLUE "\033[0;34m"		//sleep
 # define MAGENTA "\033[0;35m"	//eat
 # define CYAN "\033[0;36m"
@@ -76,15 +76,17 @@ void	output(t_philo *philo, char *routine, char *color);
 int		wait_all_threads(t_data	*data);
 int		start_dinner(t_data *data, pthread_t *thread);
 int		init_simulation(t_data *data);
-void	end_simulation(t_data *data);
+int		end_simulation(t_data *data);
 void	init_data(t_data *data);
 int		init_mutex(t_data *data);
 int		init_philos(t_data *s_data);
 int		init_fork(t_philo *philo, t_fork *fork, int philo_pos);
 
 //routine
+void    take_forks(t_philo *philo);
 void    sleep(t_philo *philo);
 void    eat(t_philo *philo);
+void    release_forks(t_philo *philo);
 void    think(t_philo *philo);
 void    died(t_philo *philo);
 

@@ -6,42 +6,59 @@
 /*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:59:10 by mrosset           #+#    #+#             */
-/*   Updated: 2025/08/01 13:15:52 by marjorie         ###   ########.fr       */
+/*   Updated: 2025/08/01 15:42:26 by marjorie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void    sleep(t_philo *philo)
+void    sleep(t_philo *philos)
 {
-    output(philo, BLUE, "is sleeping\n");
-    usleep(philo->data->time_to_sleep * 1000);
+    output(philos, BLUE, "is sleeping\n");
+    usleep(philos->data->time_to_sleep * 1000);
 }
 
-void    eat(t_philo *philo)
+void    eat(t_philo *philos)
 {
-    pthread_mutex_lock(&philo->data->meal_mutex);
-    philo->last_meal_time = get_time();
-    philo->meals_counter ++;
-    pthread_mutex_unlock(&philo->data->meal_mutex);
-    output(philo, MAGENTA, "is eating\n");
-    usleep(philo->data->time_to_eat * 1000);
+    pthread_mutex_lock(&philos->data->meal_mutex);
+    philos->last_meal_time = get_time();
+    philos->meals_counter ++;
+    pthread_mutex_unlock(&philos->data->meal_mutex);
+    output(philos, MAGENTA, "is eating\n");
+    usleep(philos->data->time_to_eat * 1000);
 }
 
-void    think(t_philo *philo)
+void    think(t_philo *philos)
 {
-    output(philo, GREEN, "is thinking\n");
+    output(philos, GREEN, "is thinking\n");
+    usleep(1000);
 }
 
-void    died(t_philo *philo)
+void    died(t_philo *philos)
 {
-    pthreads_mutex_unlock(&philo->data->mutex);
     output(philo, RED, "died\n");
-    philo->data->end_simulation = true;
+    philos->data->end_simulation = true;
+}
+
+void    take_forks(t_philo *philos)
+{
+    pthread_mutex_lock(&philos->left_fork->fork);
+    output(philos, YELLOW, "has taken a fork\n");
+    pthread_mutex_lock(&philos->right_fork->fork);
+    output(philos, YELLOW, "has taken a fork\n");
+}
+
+void    release_forks(t_philo *philos)
+{
+    pthread_mutex_unlock(&philos->left_fork->fork);
+    pthread_mutex_unlock(&philos->right_fork->fork);
+    //output(philo, YELLOW, "has released forks\n");
 }
 
 /*
 **eat : 1.grab left and right fork
           2.eat : write eat, update last meal time, meals counter
          3.put down forks.
+**think: usleep is to avoid a too fast sequence if a philo finishes
+        his reflexion very quickly.
 */

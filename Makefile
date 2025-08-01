@@ -6,7 +6,7 @@
 #    By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/27 09:49:30 by mrosset           #+#    #+#              #
-#    Updated: 2025/07/28 22:10:32 by marjorie         ###   ########.fr        #
+#    Updated: 2025/08/01 16:16:35 by marjorie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRCS = main.c \
 		input.c \
 		dinner.c \
 		routine.c \
+		monitor.c
 
 OBJS = $(SRCS:.c=.o)
 
