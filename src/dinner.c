@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dinner.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 09:47:36 by mrosset           #+#    #+#             */
-/*   Updated: 2025/07/30 10:00:33 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/08/01 13:19:27 by marjorie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,19 @@ void	*routine(void *arg)
 	philo = (t_philo *)arg;
 	if (philo->id % 2 == 0)
 		sleep(philo);
+	else
+		usleep(philo->data->time_to_eat * 1000);
+	while (!end_simulation(philo->data))
+	{
+		eat(philo);
+		if (end_simulation(philo->data))
+			break ;
+		sleep(philo);
+		if (end_simulation(philo->data))
+			break ;
+		think(philo);
+	}
+	if (end_simulation(philo->data))
+		died(philo);
+	return (NULL);
 }

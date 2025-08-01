@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   routine.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:59:10 by mrosset           #+#    #+#             */
-/*   Updated: 2025/07/30 09:51:28 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/08/01 13:15:52 by marjorie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void    think(t_philo *philo)
 
 void    died(t_philo *philo)
 {
+    pthreads_mutex_unlock(&philo->data->mutex);
     output(philo, RED, "died\n");
     philo->data->end_simulation = true;
 }
