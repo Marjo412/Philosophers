@@ -24,7 +24,7 @@ void    *monitor(void *arg)
         pthread_mutex_unlock(&data->meal_mutex);
         i++;
         }
-        usleep(1000); // Sleep for a short time to avoid busy waiting
+        usleep(1000);
     }
     return (NULL);
 }

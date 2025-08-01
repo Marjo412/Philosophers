@@ -6,7 +6,7 @@
 /*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 09:49:39 by mrosset           #+#    #+#             */
-/*   Updated: 2025/08/01 15:39:12 by marjorie         ###   ########.fr       */
+/*   Updated: 2025/08/01 19:41:39 by marjorie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ typedef struct t_data
 	int				start_simulation;
 	bool			end_simulation; // when a philo dies or nbr of meals is reach
 	pthread_mutex_t	meal_mutex;
+	pthread_mutex_t	print_mutex; // display an exclusive output
 	t_fork			*forks; // array forks
 	t_philo			*philos;
 }	s_data;
@@ -74,7 +75,7 @@ void	output(t_philo *philo, char *routine, char *color);
 
 //every functions for the simulation
 int		wait_all_threads(t_data	*data);
-int		start_dinner(t_data *data, pthread_t *thread);
+int		start_dinner(t_data *data);
 int		init_simulation(t_data *data);
 int		end_simulation(t_data *data);
 void	init_data(t_data *data);
@@ -89,6 +90,9 @@ void    eat(t_philo *philo);
 void    release_forks(t_philo *philo);
 void    think(t_philo *philo);
 void    died(t_philo *philo);
+
+//monitor
+void    *monitor(void *arg);
 
 //utils
 int		ft_atoi(const char *str);

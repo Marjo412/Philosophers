@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 09:48:54 by mrosset           #+#    #+#             */
-/*   Updated: 2025/07/27 09:48:57 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/08/01 19:31:03 by marjorie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	main(int argc, char **argv)
 main: we want at least 5 and at most 6 args
 
 **pthread_create: take 4 args
+**pthread_join:
+**pthread_detach:
 **pthread_mutex_init:
 **pthread_mutex_destroy:
 **pthread_mutex_lock:
