@@ -6,15 +6,16 @@
 /*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 09:48:16 by mrosset           #+#    #+#             */
-/*   Updated: 2025/08/01 13:58:33 by marjorie         ###   ########.fr       */
+/*   Updated: 2025/08/02 19:55:14 by marjorie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	valid_input(t_data *data, const char *str)
+int	valid_input(const char *str)
 {
 	int	len;
+	int	n;
 
 	len = 0;
 	while (is_space(str[len]))
@@ -27,7 +28,8 @@ int	valid_input(t_data *data, const char *str)
 		return (printf("Error : the input must be a digit\n"), 1);
 	while (is_digit(str[len]))
 		len++;
-	if (str[len] > INT_MAX)
+	n = ft_atoi(str);
+	if (n < 0 || n > INT_MAX)
 		return (printf("Error : the limit of the value is INT_MAX\n"), 1);
 	return (0);
 }
@@ -62,7 +64,7 @@ void	output(t_philo *philo, char *color, char *routine)
 	pthread_mutex_lock(&philo->data->print_mutex);
 	if (!end_simulation(philo->data))
 	{
-		printf("%ld %d %s\n",color, get_time(), philo->id, routine);
+		printf("%s%ld %d %s\n",color, get_time(), philo->id, routine);
 	}
 	pthread_mutex_unlock(&philo->data->print_mutex);
 }

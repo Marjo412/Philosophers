@@ -6,7 +6,7 @@
 /*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 09:47:36 by mrosset           #+#    #+#             */
-/*   Updated: 2025/08/01 20:22:30 by marjorie         ###   ########.fr       */
+/*   Updated: 2025/08/02 19:56:03 by marjorie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,8 @@ void	*routine(void *arg)
 	{
 		take_forks(philo);
 		eat(philo);
-		relase_forks(philo);
-		sleep(philo);
+		release_forks(philo);
+		philo_sleep(philo);
 		think(philo);
 	}
 	return (NULL);

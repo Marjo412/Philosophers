@@ -6,7 +6,7 @@
 /*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 09:49:39 by mrosset           #+#    #+#             */
-/*   Updated: 2025/08/02 19:21:31 by marjorie         ###   ########.fr       */
+/*   Updated: 2025/08/02 19:57:10 by marjorie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ typedef struct s_philo
 }	t_philo;
 
 // ./philo 5 800 200 200 7
-typedef struct t_data
+typedef struct s_data
 {
 	time_t			time;
 	int				nbr_philo;
@@ -66,18 +66,18 @@ typedef struct t_data
 	pthread_mutex_t	print_mutex; // display an exclusive output
 	t_fork			*forks; // array forks
 	t_philo			*philos;
-}	s_data;
+}	t_data;
 
 //input and output
-int		valid_input(t_data *data, const char *str);
-void	parse_input(t_data *data, char **argv);
+int		valid_input(const char *str);
+int		parse_input(t_data *data, char **argv);
 void	output(t_philo *philo, char *routine, char *color);
 
 //every functions for the simulation
 int		wait_all_threads(t_data	*data);
 int		start_dinner(t_data *data);
 int		init_simulation(t_data *data);
-int		end_simulation(t_data *data);
+void	end_simulation(t_data *data);
 void	*routine(void *arg);
 void	init_data(t_data *data);
 int		init_mutex(t_data *data);
@@ -86,7 +86,7 @@ int		init_fork(t_philo *philo, t_fork *fork, int philo_pos);
 
 //routine
 void    take_forks(t_philo *philo);
-void    sleep(t_philo *philo);
+void    philo_sleep(t_philo *philo);
 void    eat(t_philo *philo);
 void    release_forks(t_philo *philo);
 void    think(t_philo *philo);

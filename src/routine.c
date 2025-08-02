@@ -6,13 +6,13 @@
 /*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:59:10 by mrosset           #+#    #+#             */
-/*   Updated: 2025/08/01 15:42:26 by marjorie         ###   ########.fr       */
+/*   Updated: 2025/08/02 19:38:21 by marjorie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void    sleep(t_philo *philos)
+void    philo_sleep(t_philo *philos)
 {
     output(philos, BLUE, "is sleeping\n");
     usleep(philos->data->time_to_sleep * 1000);
@@ -36,7 +36,7 @@ void    think(t_philo *philos)
 
 void    died(t_philo *philos)
 {
-    output(philo, RED, "died\n");
+    output(philos, RED, "died\n");
     philos->data->end_simulation = true;
 }
 

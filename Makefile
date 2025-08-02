@@ -6,7 +6,7 @@
 #    By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/27 09:49:30 by mrosset           #+#    #+#              #
-#    Updated: 2025/08/02 19:26:53 by marjorie         ###   ########.fr        #
+#    Updated: 2025/08/02 19:33:02 by marjorie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,13 +16,13 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 INCLUDES = includes
 
-SRCS = main.c \
-		utils.c \
-		init.c \
-		input.c \
-		dinner.c \
-		routine.c \
-		monitor.c
+SRCS = src/main.c \
+		src/utils.c \
+		src/init.c \
+		src/input.c \
+		src/dinner.c \
+		src/routine.c \
+		src/monitor.c
 
 OBJS = $(SRCS:.c=.o)
 
