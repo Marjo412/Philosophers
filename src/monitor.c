@@ -26,29 +26,43 @@ int check_death(t_data *data)
     return (0);
 }
 
+int check_full(t_data *data)
+{
+    int i;
+    int full_count;
+    t_philo *philo;
+
+    if (data->nbr_meals <= 0)
+        return (0);
+    i = 0;
+    full_count = 0;
+    while (i < data->nbr_philo)
+    {
+        philo = &data->philos[i];
+        pthread_mutex_lock(&data->meal_mutex);
+        if (philo->full)
+            full_count++;
+        pthread_mutex_unlock(&data->meal_mutex);
+        i++;
+    }
+    if (full_count == data->nbr_philo)
+        return (1);
+    return (0);
+}
+
 void    *monitor(void *arg)
 {
     t_data  *data;
-    int     i;
-    long    now;
 
     data = (t_data *)arg;
     while (!data->end_simulation)
     {
-        i = 0;
-        while (i < data->nbr_philo)
+        if (check_death(data))
+            return (NULL);
+        if (check_full(data))
         {
-            pthread_mutex_lock(&data->meal_mutex);
-            now = get_time();
-            if (now - data->philos[i].last_meal_time > data->time_to_die)
-            {
-                output(&data->philos[i], RED, "died\n");
-                data->end_simulation = true;
-                pthread_mutex_unlock(&data->meal_mutex);
-                return (NULL);
-        }
-        pthread_mutex_unlock(&data->meal_mutex);
-        i++;
+            data->end_simulation = true;
+            return (NULL);
         }
         usleep(1000);
     }
@@ -60,4 +74,5 @@ void    *monitor(void *arg)
     the last meal is passed, if the condition is true the philo is dead.
 **check_full: this function checks how many time the philos have eaten.
     end_simulation if the nbr_meals are reached.
+**monitor : main function of the monitor to call the two other functions.
 */

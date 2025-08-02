@@ -6,7 +6,7 @@
 #    By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/27 09:49:30 by mrosset           #+#    #+#              #
-#    Updated: 2025/08/01 16:16:35 by marjorie         ###   ########.fr        #
+#    Updated: 2025/08/02 19:26:53 by marjorie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,14 +32,13 @@ OBJS = $(SRCS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
+		$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 clean:
 		rm -rf $(OBJS)
-		make clean
 
 fclean: clean
 		rm -rf $(NAME)
-		make fclean
 
 re: fclean all
 

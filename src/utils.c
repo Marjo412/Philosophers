@@ -6,7 +6,7 @@
 /*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 09:49:05 by mrosset           #+#    #+#             */
-/*   Updated: 2025/08/01 15:51:56 by marjorie         ###   ########.fr       */
+/*   Updated: 2025/08/02 19:14:53 by marjorie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,20 @@ time_t	get_time(void)
 
 	if (gettimeofday(&tv, NULL) == -1)
 	{
-		printf("Error : gettimeofday\n");
-		exit(2);
+		printf("Error : gettimeofday failed\n");
+		return (0);
 	}
-	return ((tv.tv_sec) * 1000 + (tv.tv_usec) / 1000); //a checker
+	return ((tv.tv_sec) * 1000 + (tv.tv_usec) / 1000);
 }
+
+/*
+**gettimeofday():is a function who return the current time based on a reference
+	point (January 1, 1970 at 00:00:00 UTC). This is the Unix epoch time. This
+	makes easier to compare times and calculate time differences.
+**get_time: is use to get the current time in milliseconds, because we
+	need to manage time_to_die, time_to_eat and time_to_sleep.
+**(tv.tv_sec) * 1000 + (tv.tv_usec) / 1000): convert seconds to milliseconds
+	and microseconds to milliseconds. tv is a variable from the struct timeval.
+**onephilo: is a special function in case there is only one philosopher.
+	It will take a fork, sleep for time_to_die and then die.
+*/

@@ -6,7 +6,7 @@
 /*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 09:48:54 by mrosset           #+#    #+#             */
-/*   Updated: 2025/08/01 19:31:03 by marjorie         ###   ########.fr       */
+/*   Updated: 2025/08/02 19:18:28 by marjorie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,18 @@
 // ./philo 5 800 200 200 7
 int	main(int argc, char **argv)
 {
+	t_data	data;
+
 	if (argc < 5 || argc > 6)
+		return ((printf("Error: wrong number of arguments\n")), 1);
+	if (!parse_input(&data, argv))
 		return (1);
-		//1) check errors
-		//2)init_data, create the thing
-		//3) start dinner
-	init_simulation();
+	if (!init_simulation(&data))
+		return (printf("Error: init_simulation failed\n"), 1);
+	if (!start_dinner(&data))
+		return (printf("Error: start_dinner failed\n"), 1);
+	wait_all_threads(&data);
+	end_simulation(&data);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 09:49:39 by mrosset           #+#    #+#             */
-/*   Updated: 2025/08/01 19:41:39 by marjorie         ###   ########.fr       */
+/*   Updated: 2025/08/02 19:21:31 by marjorie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ int		wait_all_threads(t_data	*data);
 int		start_dinner(t_data *data);
 int		init_simulation(t_data *data);
 int		end_simulation(t_data *data);
+void	*routine(void *arg);
 void	init_data(t_data *data);
 int		init_mutex(t_data *data);
 int		init_philos(t_data *s_data);
@@ -93,6 +94,8 @@ void    died(t_philo *philo);
 
 //monitor
 void    *monitor(void *arg);
+int		check_death(t_data *data);
+int		check_full(t_data *data);
 
 //utils
 int		ft_atoi(const char *str);
