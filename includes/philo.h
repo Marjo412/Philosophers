@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 09:49:39 by mrosset           #+#    #+#             */
-/*   Updated: 2025/08/02 19:57:10 by marjorie         ###   ########.fr       */
+/*   Updated: 2025/08/03 10:48:56 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 # define CYAN "\033[0;36m"
 # define RESET "\033[0m"
 
-typedef pthread_mutex_t t_mtx;
+typedef pthread_mutex_t	t_mtx;
 
 typedef struct s_fork
 {
@@ -61,7 +61,7 @@ typedef struct s_data
 	time_t			time_to_sleep;
 	int				nbr_meals; //nbr given in command line
 	int				start_simulation;
-	bool			end_simulation; // when a philo dies or nbr of meals is reach
+	bool			end_simulation; //when a philo dies or nbr of meals is reach
 	pthread_mutex_t	meal_mutex;
 	pthread_mutex_t	print_mutex; // display an exclusive output
 	t_fork			*forks; // array forks
@@ -77,7 +77,7 @@ void	output(t_philo *philo, char *routine, char *color);
 int		wait_all_threads(t_data	*data);
 int		start_dinner(t_data *data);
 int		init_simulation(t_data *data);
-void	end_simulation(t_data *data);
+int		end_simulation(t_data *data);
 void	*routine(void *arg);
 void	init_data(t_data *data);
 int		init_mutex(t_data *data);
@@ -85,15 +85,15 @@ int		init_philos(t_data *s_data);
 int		init_fork(t_philo *philo, t_fork *fork, int philo_pos);
 
 //routine
-void    take_forks(t_philo *philo);
-void    philo_sleep(t_philo *philo);
-void    eat(t_philo *philo);
-void    release_forks(t_philo *philo);
-void    think(t_philo *philo);
-void    died(t_philo *philo);
+void	take_forks(t_philo *philo);
+void	philo_sleep(t_philo *philo);
+void	eat(t_philo *philo);
+void	release_forks(t_philo *philo);
+void	think(t_philo *philo);
+void	died(t_philo *philo);
 
 //monitor
-void    *monitor(void *arg);
+void	*monitor(void *arg);
 int		check_death(t_data *data);
 int		check_full(t_data *data);
 

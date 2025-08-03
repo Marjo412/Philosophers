@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 09:47:46 by mrosset           #+#    #+#             */
-/*   Updated: 2025/08/02 19:46:42 by marjorie         ###   ########.fr       */
+/*   Updated: 2025/08/03 10:42:22 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	init_data(t_data *data)
 	pthread_mutex_init(&data->print_mutex, NULL);
 }
 
-int init_mutex(t_data *data)
+int	init_mutex(t_data *data)
 {
 	int		i;
 	t_fork	*fork;
@@ -38,7 +38,8 @@ int init_mutex(t_data *data)
 	}
 	return (0);
 }
-int init_philos(t_data *data)
+
+int	init_philos(t_data *data)
 {
 	int		i;
 	t_philo	*philo;

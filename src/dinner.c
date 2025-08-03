@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dinner.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 09:47:36 by mrosset           #+#    #+#             */
-/*   Updated: 2025/08/02 19:56:03 by marjorie         ###   ########.fr       */
+/*   Updated: 2025/08/03 10:47:28 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,9 @@ int	start_dinner(t_data *data)
 	return (1);
 }
 
-void	end_simulation(t_data *data)
+int	end_simulation(t_data *data)
 {
-	int	i;
+	int		i;
 	t_fork	*fork;
 
 	i = 0;
@@ -82,6 +82,7 @@ void	end_simulation(t_data *data)
 	pthread_mutex_destroy(&data->print_mutex);
 	free(data->philos);
 	free(data->forks);
+	return (1);
 }
 
 void	*routine(void *arg)
