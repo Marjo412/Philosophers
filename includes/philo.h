@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 09:49:39 by mrosset           #+#    #+#             */
-/*   Updated: 2025/08/03 10:48:56 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/08/04 21:23:16 by marjorie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <stdbool.h>
-# include <string.h> //memset
+# include <string.h> 
 # include <pthread.h> //mutex, threads
 # include <sys/time.h> //gettimeofday
 # include <limits.h> //INT_MAX
@@ -54,16 +54,16 @@ typedef struct s_philo
 // ./philo 5 800 200 200 7
 typedef struct s_data
 {
-	time_t			time;
 	int				nbr_philo;
 	time_t			time_to_die;
 	time_t			time_to_eat;
 	time_t			time_to_sleep;
 	int				nbr_meals; //nbr given in command line
 	int				start_simulation;
-	bool			end_simulation; //when a philo dies or nbr of meals is reach
+	bool			end_simu; //when a philo dies or nbr of meals is reach
 	pthread_mutex_t	meal_mutex;
 	pthread_mutex_t	print_mutex; // display an exclusive output
+	//pthread_mutex_t	end_mutex;
 	t_fork			*forks; // array forks
 	t_philo			*philos;
 }	t_data;
@@ -90,7 +90,7 @@ void	philo_sleep(t_philo *philo);
 void	eat(t_philo *philo);
 void	release_forks(t_philo *philo);
 void	think(t_philo *philo);
-void	died(t_philo *philo);
+//void	died(t_philo *philo);
 
 //monitor
 void	*monitor(void *arg);

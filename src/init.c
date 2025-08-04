@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 09:47:46 by mrosset           #+#    #+#             */
-/*   Updated: 2025/08/03 10:42:22 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/08/04 20:46:04 by marjorie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	init_data(t_data *data)
 {
-	data->end_simulation = false;
+	data->end_simu = false;
 	data->start_simulation = 0;
 	data->philos = malloc(sizeof(t_philo) * data->nbr_philo);
 	data->forks = malloc(sizeof(t_fork) * data->nbr_philo);

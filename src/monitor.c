@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   monitor.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 10:49:42 by mrosset           #+#    #+#             */
-/*   Updated: 2025/08/03 10:51:14 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/08/04 21:42:20 by marjorie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ int check_death(t_data *data)
         now = get_time();
         if (now - philo->last_meal_time > data->time_to_die)
         {
-            output(philo, RED, "died\n");
-            data->end_simulation = true;
+            output(philo, RED, "died");
+            data->end_simu = true;
             pthread_mutex_unlock(&data->meal_mutex);
             return (1);
         }
@@ -66,13 +66,13 @@ void    *monitor(void *arg)
     t_data  *data;
 
     data = (t_data *)arg;
-    while (!data->end_simulation)
+    while (!data->end_simu)
     {
         if (check_death(data))
             return (NULL);
         if (check_full(data))
         {
-            data->end_simulation = true;
+            data->end_simu = true;
             return (NULL);
         }
         usleep(1000);

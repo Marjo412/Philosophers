@@ -6,13 +6,13 @@
 #    By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/27 09:49:30 by mrosset           #+#    #+#              #
-#    Updated: 2025/08/02 19:33:02 by marjorie         ###   ########.fr        #
+#    Updated: 2025/08/04 21:01:51 by marjorie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 INCLUDES = includes
 
@@ -32,7 +32,7 @@ OBJS = $(SRCS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-		$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+		@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 clean:
 		rm -rf $(OBJS)

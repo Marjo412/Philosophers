@@ -6,7 +6,7 @@
 /*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 09:48:54 by mrosset           #+#    #+#             */
-/*   Updated: 2025/08/02 19:18:28 by marjorie         ###   ########.fr       */
+/*   Updated: 2025/08/04 20:32:44 by marjorie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,17 @@
 int	main(int argc, char **argv)
 {
 	t_data	data;
+	int		i;
 
 	if (argc < 5 || argc > 6)
 		return ((printf("Error: wrong number of arguments\n")), 1);
+	i = 1;
+	while (argv[i])
+	{
+		if (valid_input(argv[i]))
+			return (1);
+		i++;
+	}
 	if (!parse_input(&data, argv))
 		return (1);
 	if (!init_simulation(&data))
