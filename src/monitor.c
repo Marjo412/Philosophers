@@ -6,7 +6,7 @@
 /*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 10:49:42 by mrosset           #+#    #+#             */
-/*   Updated: 2025/08/04 21:42:20 by marjorie         ###   ########.fr       */
+/*   Updated: 2025/08/05 21:39:40 by marjorie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int check_death(t_data *data)
         philo = &data->philos[i];
         pthread_mutex_lock(&data->meal_mutex);
         now = get_time();
+        //printf("DEBUG: Philo %d | now = %ld | last_meal = %ld | delta = %ld\n",
+	    //    philo->id, now, philo->last_meal_time, now - philo->last_meal_time);
         if (now - philo->last_meal_time > data->time_to_die)
         {
             output(philo, RED, "died");
@@ -72,6 +74,10 @@ void    *monitor(void *arg)
             return (NULL);
         if (check_full(data))
         {
+            pthread_mutex_lock(&data->print_mutex);
+	        printf(WHITE "All philosophers have eaten %d times ✅\n",
+		    data->nbr_meals);
+            pthread_mutex_unlock(&data->print_mutex);
             data->end_simu = true;
             return (NULL);
         }

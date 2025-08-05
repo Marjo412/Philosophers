@@ -6,7 +6,7 @@
 /*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 09:49:39 by mrosset           #+#    #+#             */
-/*   Updated: 2025/08/04 21:23:16 by marjorie         ###   ########.fr       */
+/*   Updated: 2025/08/05 21:40:19 by marjorie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@
 # include <sys/time.h> //gettimeofday
 # include <limits.h> //INT_MAX
 
-# define WHITE "\033[0;37m"
+# define WHITE "\033[0;37m"		//when philos are full
 # define RED "\033[0;31m"		//dead
 # define GREEN "\033[0;32m"		//think
 # define YELLOW "\033[0;33m"	//fork
 # define BLUE "\033[0;34m"		//sleep
 # define MAGENTA "\033[0;35m"	//eat
-# define CYAN "\033[0;36m"
-# define RESET "\033[0m"
+//# define CYAN "\033[0;36m"
+//# define RESET "\033[0m"
 
 typedef pthread_mutex_t	t_mtx;
 
@@ -51,7 +51,6 @@ typedef struct s_philo
 	struct s_data	*data;
 }	t_philo;
 
-// ./philo 5 800 200 200 7
 typedef struct s_data
 {
 	int				nbr_philo;
@@ -59,7 +58,7 @@ typedef struct s_data
 	time_t			time_to_eat;
 	time_t			time_to_sleep;
 	int				nbr_meals; //nbr given in command line
-	int				start_simulation;
+	long			start_simulation;
 	bool			end_simu; //when a philo dies or nbr of meals is reach
 	pthread_mutex_t	meal_mutex;
 	pthread_mutex_t	print_mutex; // display an exclusive output

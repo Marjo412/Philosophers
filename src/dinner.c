@@ -6,7 +6,7 @@
 /*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 09:47:36 by mrosset           #+#    #+#             */
-/*   Updated: 2025/08/04 21:40:54 by marjorie         ###   ########.fr       */
+/*   Updated: 2025/08/05 21:19:43 by marjorie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int	wait_all_threads(t_data	*data)
 	int		i;
 	t_philo	*philo;
 
+	if (data->nbr_philo == 1)
+		return (0);
 	i = 0;
 	while (i < data->nbr_philo)
 	{
@@ -44,13 +46,13 @@ int	start_dinner(t_data *data)
 	int			i;
 	pthread_t	monitor_thread;
 	t_philo		*philo;
-
+	
+	data->start_simulation = get_time();
 	if (data->nbr_philo == 1)
 	{
 		one_philo(&data->philos[0]);
 		return (1);
 	}
-	data->start_simulation = get_time();
 	i = 0;
 	while (i < data->nbr_philo)
 	{
@@ -90,10 +92,12 @@ void	*routine(void *arg)
 	t_philo	*philo;
 
 	philo = (t_philo *)arg;
+	while (get_time() < philo->data->start_simulation)
+		usleep(100);
 	if (philo->id % 2 == 0)
 		usleep(100);
-	else
-		usleep(philo->data->time_to_eat * 200);
+	//else
+	//	usleep(philo->data->time_to_eat * 200);
 	while (!philo->data->end_simu)
 	{
 		take_forks(philo);

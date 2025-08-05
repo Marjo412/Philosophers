@@ -6,7 +6,7 @@
 /*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 15:59:10 by mrosset           #+#    #+#             */
-/*   Updated: 2025/08/04 21:41:27 by marjorie         ###   ########.fr       */
+/*   Updated: 2025/08/05 21:31:46 by marjorie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,15 @@ void    philo_sleep(t_philo *philos)
 
 void    eat(t_philo *philos)
 {
+    long    now;
+    
     pthread_mutex_lock(&philos->data->meal_mutex);
-    philos->last_meal_time = get_time();
+    now = get_time();
+    philos->last_meal_time = now;
     philos->meals_counter ++;
+    if (philos->data->nbr_meals > 0
+	    && philos->meals_counter >= philos->data->nbr_meals)
+	    philos->full = true;
     pthread_mutex_unlock(&philos->data->meal_mutex);
     output(philos, MAGENTA, "is eating");
     usleep(philos->data->time_to_eat * 1000);

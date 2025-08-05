@@ -6,7 +6,7 @@
 /*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 09:47:46 by mrosset           #+#    #+#             */
-/*   Updated: 2025/08/04 20:46:04 by marjorie         ###   ########.fr       */
+/*   Updated: 2025/08/05 21:18:21 by marjorie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int	init_philos(t_data *data)
 		philo->id = i + 1;
 		philo->full = false;
 		philo->meals_counter = 0;
+		philo->thread_id = 0;
 		philo->data = data;
 		init_fork(philo, data->forks, i);
 		i++;
