@@ -6,7 +6,7 @@
 /*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 10:49:42 by mrosset           #+#    #+#             */
-/*   Updated: 2025/08/05 21:39:40 by marjorie         ###   ########.fr       */
+/*   Updated: 2025/08/06 17:04:31 by marjorie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ int check_death(t_data *data)
         philo = &data->philos[i];
         pthread_mutex_lock(&data->meal_mutex);
         now = get_time();
-        //printf("DEBUG: Philo %d | now = %ld | last_meal = %ld | delta = %ld\n",
-	    //    philo->id, now, philo->last_meal_time, now - philo->last_meal_time);
         if (now - philo->last_meal_time > data->time_to_die)
         {
             output(philo, RED, "died");
@@ -89,7 +87,10 @@ void    *monitor(void *arg)
 /*
 **check_death : this function check if the authorized survival limit time from
     the last meal is passed, if the condition is true the philo is dead.
+
 **check_full: this function checks how many time the philos have eaten.
     end_simulation if the nbr_meals are reached.
-**monitor : main function of the monitor to call the two other functions.
+
+**monitor : main function of the monitor to call the two other functions to
+    check if the simulation goes right.
 */

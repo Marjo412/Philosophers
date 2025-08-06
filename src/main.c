@@ -6,13 +6,12 @@
 /*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 09:48:54 by mrosset           #+#    #+#             */
-/*   Updated: 2025/08/04 20:32:44 by marjorie         ###   ########.fr       */
+/*   Updated: 2025/08/06 17:05:03 by marjorie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-// ./philo 5 800 200 200 7
 int	main(int argc, char **argv)
 {
 	t_data	data;
@@ -40,11 +39,17 @@ int	main(int argc, char **argv)
 
 /*
 main: we want at least 5 and at most 6 args
-
-**pthread_create: take 4 args
-**pthread_join:
-**pthread_detach:
-**pthread_mutex_init:
-**pthread_mutex_destroy:
-**pthread_mutex_lock:
-**pthread_mutex_unlock:*/
+ ./philo 5 800 200 200 7
+**pthread_create: create a thread, a task that run in parallel with main,
+	take 4 args.
+**pthread_join: wait that a thread finished
+**pthread_detach: to not wait a thread, he cleans up alone at the end
+**pthread_mutex_init: initialize a mutex a shared resource. Mandatory to 
+	do it before using a mutex.
+**pthread_mutex_destroy: clean the mutex and the memory after usiing this
+	mutex, when we don't need it anymore.
+**pthread_mutex_lock: lock the mutex to not use it at the same time in an
+	other thread.
+**pthread_mutex_unlock: unlock the mutex so the others threads can use it
+	if they need it10
+*/

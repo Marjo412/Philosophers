@@ -6,23 +6,11 @@
 /*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 09:47:36 by mrosset           #+#    #+#             */
-/*   Updated: 2025/08/05 21:19:43 by marjorie         ###   ########.fr       */
+/*   Updated: 2025/08/06 17:15:16 by marjorie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
-/*
-./philo 5 800 200 200 7
-1. If no meals, return ->[0]
-2. If only 1 philo -> special function
-3. Create all threads, all philos
-4. Create monitor thread -> dead philo
-5. Syncronize the beginnin of simu
-	pthread_create->philo starts running
-	every philo start together
-6. join every philos
-*/
 
 int	wait_all_threads(t_data	*data)
 {
@@ -96,8 +84,6 @@ void	*routine(void *arg)
 		usleep(100);
 	if (philo->id % 2 == 0)
 		usleep(100);
-	//else
-	//	usleep(philo->data->time_to_eat * 200);
 	while (!philo->data->end_simu)
 	{
 		take_forks(philo);
@@ -110,11 +96,22 @@ void	*routine(void *arg)
 }
 
 /*
-philo routine: 1.grab left and right fork
+**philo routine: 1.grab left and right fork
 		  		2.eat
-				3.put down forks.
+				3.put down forks
 				4.sleep
 				5.think
-	end simulation if end_simulation is true
-					if philo dies
+				*repet
+
+**wait_all_threads: this function wait all philos threads except the 
+	monitor_thread. Not call if there is only one philo. 
+	**pthread_join = we  want to wait that all philos have finished
+	his routine (have eaten the nbr_meals or someone died). So the function main
+	lock all philo threads until the end and then manage a clean end of the
+	simulation and free the memory
+
+**start_simulation: pthread_detach = we don't need to wait this thread because
+	it's not a philo thread, it's only for the monitor who check if a philo die
+	of if they have all eaten. this monitor_thread end automatically when the
+	simulation is finished.
 */

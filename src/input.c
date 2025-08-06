@@ -6,7 +6,7 @@
 /*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 09:48:16 by mrosset           #+#    #+#             */
-/*   Updated: 2025/08/04 21:39:17 by marjorie         ###   ########.fr       */
+/*   Updated: 2025/08/06 17:37:14 by marjorie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,20 +58,28 @@ int	parse_input(t_data *data, char **argv)
 	return (1);
 }
 
-// [time_ms] [philo_id] [action] print the output
 void	output(t_philo *philo, char *color, char *routine)
 {
+	long	timestamp;
+	
 	pthread_mutex_lock(&philo->data->print_mutex);
 	if (!philo->data->end_simu)
-		printf("%s%ld Philo %d: %s\n", color, get_time(), philo->id, routine);
+	{
+		timestamp = get_time() - philo->data->start_simulation;
+		printf("%s%ldms Philo %d: %s\n", color, timestamp, philo->id, routine);
+	}
 	pthread_mutex_unlock(&philo->data->print_mutex);
 }
 
 /*
 **valid_input: this function checks if the input is valid
-	//0. check special chars, tab, space...
-	//1. check for negatives
-	//2. check if nb is legit, no letters
-	//3. check INT_MAX
-**parse_input:
+			0. check special chars, tab, space...
+			1. check for negatives
+			2. check if nb is legit, no letters
+			3. check INT_MAX
+
+**parse_input: this function is for the input we gave to the programm, to check
+	if it's allowed, correct and convert the numbers.
+
+**output: is the global printf with the goods params.[time_ms] [philo_id] [action]
 */
