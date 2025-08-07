@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 09:48:16 by mrosset           #+#    #+#             */
-/*   Updated: 2025/08/06 17:37:14 by marjorie         ###   ########.fr       */
+/*   Updated: 2025/08/07 10:11:53 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	parse_input(t_data *data, char **argv)
 void	output(t_philo *philo, char *color, char *routine)
 {
 	long	timestamp;
-	
+
 	pthread_mutex_lock(&philo->data->print_mutex);
 	if (!philo->data->end_simu)
 	{
@@ -81,5 +81,6 @@ void	output(t_philo *philo, char *color, char *routine)
 **parse_input: this function is for the input we gave to the programm, to check
 	if it's allowed, correct and convert the numbers.
 
-**output: is the global printf with the goods params.[time_ms] [philo_id] [action]
+**output: is the global printf with the goods params
+	[time_ms] [philo_id] [action]
 */

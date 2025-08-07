@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 09:47:46 by mrosset           #+#    #+#             */
-/*   Updated: 2025/08/05 21:18:21 by marjorie         ###   ########.fr       */
+/*   Updated: 2025/08/07 10:31:23 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,4 +90,6 @@ int	init_simulation(t_data *data)
 6e4 = 60ms in converstion
 **init_data: allocate memory, init globals mutex
 **init_mutex: init mutex of each fork
-**init_philos: init each philo and link to the forks*/
+**init_philos: init each philo and link to the forks
+**init_simulation: global function to call the others and init all
+*/
