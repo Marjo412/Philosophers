@@ -6,7 +6,7 @@
 /*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 09:48:54 by mrosset           #+#    #+#             */
-/*   Updated: 2025/08/10 10:58:23 by mrosset          ###   ########.fr       */
+/*   Updated: 2025/08/10 14:56:44 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,6 @@ main: we want at least 5 and at most 6 args
 	other thread.
 **pthread_mutex_unlock: unlock the mutex so the others threads can use it
 	if they need it.
+**tests : valgrind --tool=drd 
+		 valgrind --leak-check=full
 */

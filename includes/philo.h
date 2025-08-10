@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 09:49:39 by mrosset           #+#    #+#             */
-/*   Updated: 2025/08/05 21:40:19 by marjorie         ###   ########.fr       */
+/*   Updated: 2025/08/10 14:50:50 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@
 # define YELLOW "\033[0;33m"	//fork
 # define BLUE "\033[0;34m"		//sleep
 # define MAGENTA "\033[0;35m"	//eat
-//# define CYAN "\033[0;36m"
-//# define RESET "\033[0m"
 
 typedef pthread_mutex_t	t_mtx;
 
@@ -44,10 +42,10 @@ typedef struct s_philo
 	int				id;
 	long			meals_counter;
 	bool			full;
-	long			last_meal_time; //time passed from last meal
+	long			last_meal_time;
 	t_fork			*left_fork;
 	t_fork			*right_fork;
-	pthread_t		thread_id; // a philo is a thread
+	pthread_t		thread_id;
 	struct s_data	*data;
 }	t_philo;
 
@@ -57,13 +55,12 @@ typedef struct s_data
 	time_t			time_to_die;
 	time_t			time_to_eat;
 	time_t			time_to_sleep;
-	int				nbr_meals; //nbr given in command line
+	int				nbr_meals;
 	long			start_simulation;
-	bool			end_simu; //when a philo dies or nbr of meals is reach
+	bool			end_simu;
 	pthread_mutex_t	meal_mutex;
-	pthread_mutex_t	print_mutex; // display an exclusive output
-	//pthread_mutex_t	end_mutex;
-	t_fork			*forks; // array forks
+	pthread_mutex_t	print_mutex;
+	t_fork			*forks;
 	t_philo			*philos;
 }	t_data;
 
