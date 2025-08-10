@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 09:48:54 by mrosset           #+#    #+#             */
-/*   Updated: 2025/08/06 17:05:03 by marjorie         ###   ########.fr       */
+/*   Updated: 2025/08/10 10:58:23 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,5 @@ main: we want at least 5 and at most 6 args
 **pthread_mutex_lock: lock the mutex to not use it at the same time in an
 	other thread.
 **pthread_mutex_unlock: unlock the mutex so the others threads can use it
-	if they need it10
+	if they need it.
 */

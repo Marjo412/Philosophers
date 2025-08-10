@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marjorie <marjorie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mrosset <mrosset@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 09:49:05 by mrosset           #+#    #+#             */
-/*   Updated: 2025/08/06 17:12:27 by marjorie         ###   ########.fr       */
+/*   Updated: 2025/08/10 10:59:37 by mrosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,6 @@ time_t	get_time(void)
 	
 **one_philo: is a special function in case there is only one philosopher.
 	It will take a fork, sleep for time_to_die and then die.
+
+**is_digit/is_space: is to check the input.
 */
