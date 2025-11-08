@@ -75,7 +75,7 @@ Par exemple:
 Pour supprimer les fichiers objets et l’exécutable:
 
     make clean     # Supprime uniquement les fichiers objets (.o)
-    make fclean    # Supprime les fichiers objets + l’exécutable cub3D
+    make fclean    # Supprime les fichiers objets + l’exécutable
     make re        # Reconstruit complètement le projet
 
 ---
