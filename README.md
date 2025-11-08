@@ -1,3 +1,5 @@
+<img width="150" height="150" alt="image" src="https://github.com/user-attachments/assets/e051cc7d-58b5-4e3e-926a-2fce4abe9293" />
+
 ## 🎮 Description
 
 Philosophers est un projet de l’école 42 inspiré du célèbre problème des philosophes mangeurs formulé par
@@ -26,12 +28,12 @@ une même ressource partagée (comme une variable ou un fichier). Quand un threa
 les autres doivent attendre qu’il soit libéré avant d’y accéder.
 
 ## 3.**gettimeofday()**
-La fonction 'gettimeofday()' permet d’obtenir l’heure actuelle, exprimée en secondes et microsecondes
+La fonction `gettimeofday()` permet d’obtenir l’heure actuelle, exprimée en secondes et microsecondes
 depuis l’époque UNIX (1er janvier 1970). Dans Philosophers, elle est utilisée pour mesurerle temps
 écoulé depuis le début de la simulation et calculer les durées en millisecondes.
 
 ## 4.**usleep**
-La fonction 'usleep()' suspend l’exécution du thread courant pendant un certain nombre de microsecondes.
+La fonction `usleep()` suspend l’exécution du thread courant pendant un certain nombre de microsecondes.
 Elle est utilisée pour faire des pauses précises entre les actions des philosophes (par exemple, dormir
 ou manger).
 ---
